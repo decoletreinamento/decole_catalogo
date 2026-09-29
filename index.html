@@ -661,19 +661,149 @@
         height: 28px;
       }
     }
+
+    /* ===== Filtros profissionais ===== */
+    .filters {
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+      display: grid;
+      gap: 14px;
+    }
+
+    .filters-row {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .search-wrap { position: relative; flex: 1 1 320px; }
+    .search-wrap svg {
+      position: absolute; left: 14px; top: 50%; transform: translateY(-50%);
+      width: 18px; height: 18px; stroke: var(--muted); fill: none;
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; pointer-events: none;
+    }
+    .search-wrap .field { padding-left: 42px; }
+    .sort-wrap { flex: 0 0 auto; }
+    .sort-wrap .field { width: auto; min-width: 190px; }
+
+    .chips {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 2px 2px 8px;
+      scrollbar-width: thin;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: #33425b;
+      border-radius: 999px;
+      padding: 9px 10px 9px 13px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .18s, border-color .18s, color .18s, transform .18s, opacity .18s;
+    }
+    .chip svg {
+      width: 17px; height: 17px; fill: none; stroke: var(--c, currentColor);
+      stroke-width: 2; stroke-linecap: round; stroke-linejoin: round;
+    }
+    .chip em {
+      font-style: normal; font-size: 12px; background: #eef1f6; color: #52627c;
+      border-radius: 999px; padding: 2px 8px; min-width: 26px; text-align: center;
+    }
+    .chip:hover { border-color: var(--c, var(--red)); transform: translateY(-1px); }
+    .chip:focus-visible, .seg button:focus-visible, .course-card:focus-visible {
+      outline: 3px solid rgba(215,25,32,.35); outline-offset: 2px;
+    }
+    .chip.active { background: var(--c, var(--blue)); border-color: var(--c, var(--blue)); color: #fff; }
+    .chip.active svg { stroke: #fff; }
+    .chip.active em { background: rgba(255,255,255,.24); color: #fff; }
+    .chip.zero:not(.active) { opacity: .45; }
+    .chip-sep { flex: 0 0 1px; background: var(--line); margin: 4px 4px; }
+    .chip-premium svg { fill: var(--c); }
+    .chip-premium.active svg { fill: #fff; }
+
+    .seg-label { font-size: 12px; font-weight: 800; color: var(--muted); text-transform: uppercase; letter-spacing: .8px; }
+    .seg { display: inline-flex; background: #eef1f6; border-radius: 999px; padding: 4px; gap: 2px; flex-wrap: wrap; }
+    .seg button {
+      border: 0; background: transparent; padding: 7px 14px; border-radius: 999px;
+      font-weight: 700; font-size: 13px; color: #52627c; cursor: pointer; transition: .18s;
+    }
+    .seg button small { opacity: .65; margin-left: 4px; font-weight: 700; }
+    .seg button.active { background: #fff; color: var(--blue); box-shadow: 0 2px 8px rgba(7,29,58,.12); }
+
+    .results-bar {
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+      margin-bottom: 14px; color: var(--muted); font-size: 14px;
+    }
+    .results-bar strong { color: var(--blue); }
+    .link-btn {
+      border: 0; background: none; color: var(--red); font-weight: 800; cursor: pointer;
+      font-size: 14px; padding: 6px 10px; border-radius: 10px;
+    }
+    .link-btn:hover { background: rgba(215,25,32,.08); }
+
+    .group { margin-bottom: 20px; }
+    .group-head { display: flex; align-items: center; gap: 10px; margin: 6px 0 12px; }
+    .group-icon {
+      width: 34px; height: 34px; border-radius: 11px; display: grid; place-items: center;
+      background: color-mix(in srgb, var(--c) 14%, white);
+    }
+    .group-icon svg { width: 18px; height: 18px; fill: none; stroke: var(--c); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    .group-head h2 { font-size: 18px; color: var(--blue); }
+    .group-head .count { font-size: 12px; font-weight: 800; color: var(--muted); background: #eaeef5; border-radius: 999px; padding: 3px 9px; }
+    .group-grid { display: grid; gap: 14px; }
+
+    @keyframes rise { from { opacity: 0; transform: translateY(8px); } }
+    .course-card { animation: rise .35s backwards; animation-delay: calc(var(--i, 0) * 30ms); }
+    @media (prefers-reduced-motion: reduce) { .course-card { animation: none; } .chip { transition: none; } }
+
+    .card-top { display: flex; justify-content: space-between; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .area-tag { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 800; color: var(--c); }
+    .area-tag svg { width: 14px; height: 14px; fill: none; stroke: var(--c); stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+    .course-card h3 { margin-bottom: 8px; }
+    .badges { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+    .badge { border-radius: 999px; padding: 6px 10px; font-size: 12px; font-weight: 700; background: #f0f3f8; color: #42526b; display: inline-flex; align-items: center; gap: 5px; }
+    .badge svg { width: 12px; height: 12px; }
+    .badge-premium { background: linear-gradient(135deg, #f3d98b, #c99a2e); color: #4a3200; }
+    .badge-premium svg { fill: #4a3200; }
+    .badge-best { background: var(--red); color: #fff; }
+    .course-card.is-premium { background: linear-gradient(180deg, #fff, #fffaf0); border-color: rgba(201,154,46,.45); }
+
+    .details-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+    .details-badges .badge { background: rgba(255,255,255,.16); color: #fff; }
+    .details-badges .badge-premium { background: linear-gradient(135deg, #f3d98b, #c99a2e); color: #4a3200; }
+
+    @media (max-width: 620px) {
+      .filters { padding: 14px; }
+      .sort-wrap, .sort-wrap .field { width: 100%; }
+      .seg button { padding: 7px 11px; }
+    }
+
+    @media print { .filters, .results-bar { display: none !important; } }
 </style>
 </head>
 <body>
   <header>
     <div class="topbar">
       <div class="brand">
-        <img class="logo" src="logo DECOLE branca.png" alt="Decole Cursos Profissionalizantes e Idiomas" />
+        <img class="logo" src="LOGO_SEM FUNDO(2).png" alt="Decole Cursos Profissionalizantes e Idiomas" />
         <div class="brand-text">
-          <strong>Decole Cursos</strong>
-          <small>Cursos profissionalizantes e idiomas</small>
+          
         </div>
       </div>
-      <div class="tag">Organização • módulos • duração • público-alvo</div>
+      <div class="tag">Mais conhecimento, mais oportunidades!</div>
     </div>
 
     <section class="hero">
@@ -683,15 +813,34 @@
   </header>
 
   <main>
-    <section class="toolbar">
-      <input id="search" class="field" type="search" placeholder="Buscar por curso, módulo ou público..." />
-      <select id="categoryFilter" class="field">
-        <option value="todos">Todas as categorias</option>
-      </select>
-      <select id="levelFilter" class="field">
-        <option value="todos">Todos os níveis</option>
-      </select>
+    <section class="filters" aria-label="Filtros do catálogo">
+      <div class="filters-row">
+        <div class="search-wrap">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+          <input id="search" class="field" type="search" placeholder="Buscar por curso, módulo ou público..." aria-label="Buscar cursos" />
+        </div>
+        <div class="sort-wrap">
+          <select id="sortSelect" class="field" aria-label="Ordenar cursos">
+            <option value="relevancia">Ordenar: Destaques</option>
+            <option value="az">Ordenar: A → Z</option>
+            <option value="menor">Ordenar: Menor duração</option>
+            <option value="maior">Ordenar: Maior duração</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="areaChips" class="chips" role="group" aria-label="Filtrar por categoria"></div>
+
+      <div class="filters-row">
+        <span class="seg-label">Nível</span>
+        <div id="levelSeg" class="seg" role="group" aria-label="Filtrar por nível"></div>
+      </div>
     </section>
+
+    <div class="results-bar">
+      <div id="resultsInfo" aria-live="polite"></div>
+      <button id="clearBtn" class="link-btn" type="button" hidden>Limpar filtros</button>
+    </div>
 
 
 
@@ -788,7 +937,7 @@
           ["Desenvolvimento de Games 3D - Módulo final", "16h"]
         ]
       },
-     /* {
+      {
         id: 5,
         code: "ADM-001",
         name: "Assistente Administrativo",
@@ -806,7 +955,7 @@
           ["Excel Avançado", "1 mês"],
           ["Assistente Contábil", "2 meses"]
         ]
-      },*/
+      },
       {
         id: 6,
         code: "BI-001",
@@ -994,7 +1143,7 @@
           ["Microsoft Power BI - Módulo III", "16h"]
         ]
       },
-     /* {
+      {
         id: 18,
         code: "000260",
         name: "Rotinas Administrativas Essencial",
@@ -1009,7 +1158,7 @@
           ["Assistente Contábil - New", "16h"],
           ["Gestão de Pessoas", "8h"]
         ]
-      },*/
+      },
       {
         id: 19,
         code: "000224",
@@ -1057,7 +1206,7 @@
           ["Montagem Prática", "15h"]
         ]
       },
-      /*{
+      {
         id: 21,
         code: "000061",
         name: "Gestor Administrativo Informatizado",
@@ -1085,7 +1234,7 @@
           ["Rotinas Administrativas", "16h"],
           ["Desenvolvimento Profissional", "2h"]
         ]
-      },*/
+      },
       {
         id: 22,
         code: "000021",
@@ -1224,7 +1373,7 @@
           ["Pixel Art", ""]
         ]
       },
-     /* {
+      {
         id: 29,
         code: "PREM-30",
         name: "Informática Master",
@@ -1251,7 +1400,7 @@
           ["Adobe Premiere", "16h"],
           ["Adobe Illustrator", "16h"]
         ]
-      },*/
+      },
       {
         id: 30,
         code: "PREM-31",
@@ -1356,7 +1505,7 @@
           ["Automatização com IA", "1 mês"]
         ]
       },
-      /*{
+      {
         id: 34,
         code: "PREM-35",
         name: "Gestor de RH",
@@ -1381,8 +1530,8 @@
           ["Microsoft Power BI - Módulo II", "16h"],
           ["Microsoft Power BI - Módulo III", "16h"]
         ]
-      },*/
-     /* {
+      },
+     {
         id: 35,
         code: "PREM-36",
         name: "Gestor Digital Pro",
@@ -1432,86 +1581,241 @@
           ["Montagem e Manutenção de Computadores", "16h"],
           ["Montagem Prática", "15h"]
         ]
-      }*/
+      }
     ];
 
-    let courses = starterCourses;
+    /* ===== Categorias =====
+       Para mudar um curso de categoria, altere o "id do curso" em AREA_BY_ID.
+       Cursos premium têm categoria normal + a marca isPremium (filtro "Premium"). */
+    const ICONS = {
+      informatica: '<rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/>',
+      dados: '<path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/>',
+      design: '<path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/>',
+      games: '<rect x="2" y="6" width="20" height="12" rx="4"/><path d="M6 12h4M8 10v4"/><circle cx="15" cy="13" r="1"/><circle cx="18" cy="11" r="1"/>',
+      gestao: '<rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>',
+      vendas: '<path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 8.5 8.5 0 0 1-3.8-.9L3 21l1.9-5.7A8.4 8.4 0 1 1 21 11.5z"/>',
+      idiomas: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
+      outros: '<circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/>',
+      todas: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
+      star: '<path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/>'
+    };
+
+    const AREAS = [
+      { id: "informatica", name: "Informática & Suporte", color: "#1f6feb" },
+      { id: "dados",       name: "Dados & Automação",     color: "#0f9b8e" },
+      { id: "design",      name: "Design & Marketing",    color: "#c2410c" },
+      { id: "games",       name: "Games & Kids",          color: "#7c3aed" },
+      { id: "gestao",      name: "Administração & Gestão", color: "#0d2f5e" },
+      { id: "vendas",      name: "Vendas & Atendimento",  color: "#d71920" },
+      { id: "idiomas",     name: "Idiomas",               color: "#0e7490" },
+      { id: "outros",      name: "Outros cursos",         color: "#667085" }
+    ];
+
+    const AREA_BY_ID = {
+      // Informática & Suporte
+      1: "informatica", 2: "informatica", 14: "informatica", 16: "informatica",
+      20: "informatica", 29: "informatica", 36: "informatica",
+      // Dados & Automação
+      6: "dados", 17: "dados",
+      // Design & Marketing
+      3: "design", 23: "design", 30: "design", 35: "design",
+      // Games & Kids
+      4: "games", 15: "games", 28: "games",
+      // Administração & Gestão
+      5: "gestao", 13: "gestao", 18: "gestao", 21: "gestao", 25: "gestao",
+      31: "gestao", 32: "gestao", 33: "gestao", 34: "gestao",
+      // Vendas & Atendimento
+      19: "vendas", 22: "vendas",
+      // Idiomas
+      24: "idiomas", 26: "idiomas"
+    };
+
+    const LEVELS = ["Essencial", "Profissionalizante", "Avançado"];
+    const areaOf = id => AREAS.find(a => a.id === id) || AREAS[AREAS.length - 1];
+    const svg = (paths, extra = "") => `<svg viewBox="0 0 24 24" aria-hidden="true" ${extra}>${paths}</svg>`;
+    const norm = s => String(s || "").normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+
+    let courses = starterCourses.map(c => ({
+      ...c,
+      area: AREA_BY_ID[c.id] || "outros",
+      _text: norm([c.name, c.level, c.audience, c.description, areaOf(AREA_BY_ID[c.id] || "outros").name, c.isPremium ? "premium" : "", c.modules.flat().join(" ")].join(" "))
+    }));
     let selectedId = courses[0]?.id;
 
+    const state = { q: "", area: "todas", level: "todos", premium: false, sort: "relevancia" };
+
     const search = document.getElementById("search");
-    const categoryFilter = document.getElementById("categoryFilter");
-    const levelFilter = document.getElementById("levelFilter");
+    const sortSelect = document.getElementById("sortSelect");
+    const chipsEl = document.getElementById("areaChips");
+    const levelSeg = document.getElementById("levelSeg");
+    const resultsInfo = document.getElementById("resultsInfo");
+    const clearBtn = document.getElementById("clearBtn");
     const coursesEl = document.getElementById("courses");
     const detailsEl = document.getElementById("details");
-
-    function save() {
-      localStorage.setItem("decoleCourses", JSON.stringify(courses));
-    }
 
     function parseDuration(text) {
       const match = String(text).replace(",", ".").match(/[0-9]+([.][0-9]+)?/);
       return match ? Number(match[0]) : 0;
     }
+    const monthsOf = c => parseDuration(c.duration) * (/ano/i.test(c.duration) ? 12 : 1);
 
-    function monthsFromDuration(duration) {
-      const months = Math.round(parseDuration(duration));
-      return months || "A definir";
+    /* Filtra ignorando uma dimensão (usado para calcular os contadores de cada filtro) */
+    function matches(c, skip) {
+      if (skip !== "q" && state.q && !c._text.includes(norm(state.q.trim()))) return false;
+      if (skip !== "area" && state.area !== "todas" && c.area !== state.area) return false;
+      if (skip !== "level" && state.level !== "todos" && c.level !== state.level) return false;
+      if (skip !== "premium" && state.premium && !c.isPremium) return false;
+      return true;
     }
 
-    function populateFilters() {
-      const categories = [...new Set(courses.map(c => c.category))].sort();
-      const levels = [...new Set(courses.map(c => c.level))];
-      categoryFilter.innerHTML = '<option value="todos">Todas as categorias</option>' + categories.map(c => `<option value="${c}">${c}</option>`).join("");
-      levelFilter.innerHTML = '<option value="todos">Todos os níveis</option>' + levels.map(l => `<option value="${l}">${l}</option>`).join("");
-    }
-
-    function filteredCourses() {
-      const term = search.value.toLowerCase().trim();
-      return courses.filter(course => {
-        const text = [course.name, course.category, course.level, course.audience, course.description, course.modules.flat().join(" ")].join(" ").toLowerCase();
-        const matchesSearch = !term || text.includes(term);
-        const matchesCategory = categoryFilter.value === "todos" || course.category === categoryFilter.value;
-        const matchesLevel = levelFilter.value === "todos" || course.level === levelFilter.value;
-        return matchesSearch && matchesCategory && matchesLevel;
-      }).sort((a, b) => {
-        if (a.bestSeller && !b.bestSeller) return -1;
-        if (!a.bestSeller && b.bestSeller) return 1;
-        if (a.bestSeller && b.bestSeller) return a.bestSeller - b.bestSeller;
-        return a.name.localeCompare(b.name, "pt-BR");
+    function sortList(list) {
+      const byName = (a, b) => a.name.localeCompare(b.name, "pt-BR");
+      const s = state.sort;
+      return list.sort((a, b) => {
+        if (s === "az") return byName(a, b);
+        if (s === "menor") return monthsOf(a) - monthsOf(b) || byName(a, b);
+        if (s === "maior") return monthsOf(b) - monthsOf(a) || byName(a, b);
+        const ba = a.bestSeller || 99, bb = b.bestSeller || 99;
+        if (ba !== bb) return ba - bb;
+        if (!!a.isPremium !== !!b.isPremium) return a.isPremium ? 1 : -1;
+        return byName(a, b);
       });
     }
 
+    const filteredCourses = () => sortList(courses.filter(c => matches(c)));
+    const filtersActive = () => state.q.trim() || state.area !== "todas" || state.level !== "todos" || state.premium;
 
-    function renderCourses() {
-      const list = filteredCourses();
+    function renderChips() {
+      const scroll = chipsEl.scrollLeft;
+      const base = courses.filter(c => matches(c, "area"));
+      const chip = (id, label, count, color, icon, extra = "") => `
+        <button type="button" class="chip ${extra} ${state.area === id && !extra.includes("chip-premium") ? "active" : ""} ${count === 0 ? "zero" : ""}"
+          data-area="${id}" style="--c:${color}" aria-pressed="${state.area === id}">
+          ${svg(icon)}<span>${label}</span><em>${count}</em>
+        </button>`;
+
+      let html = chip("todas", "Todos", base.length, "#071d3a", ICONS.todas);
+      html += AREAS.filter(a => courses.some(c => c.area === a.id))
+        .map(a => chip(a.id, a.name, base.filter(c => c.area === a.id).length, a.color, ICONS[a.id])).join("");
+
+      const premCount = courses.filter(c => matches(c, "premium") && c.isPremium).length;
+      html += '<span class="chip-sep"></span>' + `
+        <button type="button" class="chip chip-premium ${state.premium ? "active" : ""} ${premCount === 0 && !state.premium ? "zero" : ""}"
+          data-premium="1" style="--c:#b8862b" aria-pressed="${state.premium}">
+          ${svg(ICONS.star)}<span>Premium</span><em>${premCount}</em>
+        </button>`;
+
+      chipsEl.innerHTML = html;
+      chipsEl.scrollLeft = scroll;
+    }
+
+    function renderLevels() {
+      const base = courses.filter(c => matches(c, "level"));
+      const btn = (val, label, n) => `<button type="button" data-level="${val}" class="${state.level === val ? "active" : ""}" aria-pressed="${state.level === val}">${label}<small>${n}</small></button>`;
+      levelSeg.innerHTML = btn("todos", "Todos", base.length) +
+        LEVELS.map(l => btn(l, l, base.filter(c => c.level === l).length)).join("");
+    }
+
+    function badgesHTML(c, withLevel = true) {
+      return [
+        withLevel ? `<span class="badge">${c.level || "Nível a definir"}</span>` : "",
+        c.isPremium ? `<span class="badge badge-premium">${svg(ICONS.star)}Premium</span>` : "",
+        c.bestSeller ? '<span class="badge badge-best">Mais vendido</span>' : ""
+      ].join("");
+    }
+
+    let cardIndex = 0;
+    function cardHTML(c) {
+      const a = areaOf(c.area);
+      return `
+        <article class="course-card ${c.id === selectedId ? "active" : ""} ${c.isPremium ? "is-premium" : ""}"
+          data-id="${c.id}" tabindex="0" role="button" style="--i:${Math.min(cardIndex++, 14)}">
+          <div class="card-top">
+            <span class="area-tag" style="--c:${a.color}">${svg(ICONS[a.id])}${a.name}</span>
+            <div class="pill">${c.duration}</div>
+          </div>
+          <h3>${c.name}</h3>
+          <p>${c.audience || c.description}</p>
+          <div class="badges">${badgesHTML(c)}</div>
+        </article>`;
+    }
+
+    function renderCourses(list) {
+      cardIndex = 0;
       if (!list.length) {
-        coursesEl.innerHTML = '<div class="empty">Nenhum curso encontrado com esse filtro.</div>';
-        detailsEl.innerHTML = '';
+        coursesEl.innerHTML = '<div class="empty">Nenhum curso encontrado com esses filtros.<br><br><button type="button" class="btn light" data-action="clear">Limpar filtros</button></div>';
         return;
       }
-
-      if (!list.some(c => c.id === selectedId)) selectedId = list[0].id;
-
-      coursesEl.innerHTML = list.map(course => `
-        <article class="course-card ${course.id === selectedId ? 'active' : ''}" onclick="selectCourse(${course.id})">
-          ${course.bestSeller ? '<div class="ribbon">Mais vendido</div>' : ''}
-          ${course.isPremium ? '<div class="ribbon-premium">Premium</div>' : ''}
-          <div class="card-head">
-            <div>
-              <h3>${course.name}</h3>
-              <div class="meta">
-                <span>${course.category}</span>
-                <span>${course.level || 'Nível a definir'}</span>
+      const grouped = state.sort === "relevancia" && state.area === "todas";
+      if (grouped) {
+        coursesEl.innerHTML = AREAS.map(a => {
+          const items = list.filter(c => c.area === a.id);
+          if (!items.length) return "";
+          return `
+            <section class="group">
+              <div class="group-head" style="--c:${a.color}">
+                <span class="group-icon">${svg(ICONS[a.id])}</span>
+                <h2>${a.name}</h2><span class="count">${items.length}</span>
               </div>
-            </div>
-            <div class="pill">${course.duration}</div>
-          </div>
-          <p>${course.audience || course.description}</p>
-        </article>
-      `).join("");
-
-      renderDetails();
+              <div class="group-grid">${items.map(cardHTML).join("")}</div>
+            </section>`;
+        }).join("");
+      } else {
+        coursesEl.innerHTML = `<div class="group-grid">${list.map(cardHTML).join("")}</div>`;
+      }
     }
+
+    function renderInfo(list) {
+      const n = list.length;
+      let txt = `<strong>${n}</strong> ${n === 1 ? "curso encontrado" : "cursos encontrados"}`;
+      if (state.area !== "todas") txt += ` em <strong>${areaOf(state.area).name}</strong>`;
+      if (state.premium) txt += " · somente Premium";
+      resultsInfo.innerHTML = txt;
+      clearBtn.hidden = !filtersActive();
+    }
+
+    function render() {
+      const list = filteredCourses();
+      if (list.length && !list.some(c => c.id === selectedId)) selectedId = list[0].id;
+      renderChips();
+      renderLevels();
+      renderInfo(list);
+      renderCourses(list);
+      if (list.length) renderDetails(); else detailsEl.innerHTML = "";
+    }
+
+    function clearFilters() {
+      Object.assign(state, { q: "", area: "todas", level: "todos", premium: false });
+      search.value = "";
+      render();
+    }
+
+    chipsEl.addEventListener("click", e => {
+      const b = e.target.closest(".chip");
+      if (!b) return;
+      if (b.dataset.premium) state.premium = !state.premium;
+      else state.area = b.dataset.area;
+      render();
+    });
+    levelSeg.addEventListener("click", e => {
+      const b = e.target.closest("button[data-level]");
+      if (!b) return;
+      state.level = b.dataset.level;
+      render();
+    });
+    coursesEl.addEventListener("click", e => {
+      if (e.target.closest("[data-action='clear']")) return clearFilters();
+      const card = e.target.closest(".course-card");
+      if (card) selectCourse(Number(card.dataset.id));
+    });
+    coursesEl.addEventListener("keydown", e => {
+      if (e.key !== "Enter" && e.key !== " ") return;
+      const card = e.target.closest(".course-card");
+      if (card) { e.preventDefault(); selectCourse(Number(card.dataset.id)); }
+    });
+    search.addEventListener("input", () => { state.q = search.value; render(); });
+    sortSelect.addEventListener("change", () => { state.sort = sortSelect.value; render(); });
+    clearBtn.addEventListener("click", clearFilters);
 
     function renderDetails() {
       const course = courses.find(c => c.id === selectedId) || courses[0];
@@ -1530,12 +1834,13 @@
         <div class="details-banner">
           <div class="code">Código ${course.code || 'sem código'}</div>
           <h2>${course.name}</h2>
-          <div class="pill" style="display:inline-block;background:rgba(255,255,255,.14);color:white;">${course.category}</div>
+          <div class="details-badges">${badgesHTML(course, false)}</div>
         </div>
         <div class="details-content">
           <div class="detail-grid">
             <div class="mini"><small>Duração</small><strong>${course.duration}</strong></div>
             <div class="mini"><small>Nível</small><strong>${course.level || 'A definir'}</strong></div>
+            <div class="mini"><small>Categoria</small><strong>${areaOf(course.area).name}</strong></div>
           </div>
 
           <h3 class="section-title">Para quem é</h3>
@@ -1564,7 +1869,8 @@
 
     function selectCourse(id) {
       selectedId = id;
-      renderCourses();
+      coursesEl.querySelectorAll(".course-card").forEach(el => el.classList.toggle("active", Number(el.dataset.id) === id));
+      renderDetails();
       if (window.matchMedia("(max-width: 980px)").matches) {
         document.body.classList.add("details-open");
       }
@@ -1578,14 +1884,7 @@
       if (event.key === "Escape") closeDetails();
     });
 
-
-
-    search.addEventListener("input", renderCourses);
-    categoryFilter.addEventListener("change", renderCourses);
-    levelFilter.addEventListener("change", renderCourses);
-
-    populateFilters();
-    renderCourses();
+    render();
   </script>
 
   <!-- WhatsApp Floating Button -->
