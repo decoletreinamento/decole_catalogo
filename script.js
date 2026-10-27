@@ -777,7 +777,8 @@ const starterCourses = [
     idiomas: '<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/>',
     outros: '<circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/>',
     todas: '<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',
-    star: '<path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/>'
+    star: '<path d="M12 2l3 6.9 7.5.7-5.7 5 1.7 7.4L12 18l-6.5 4 1.7-7.4-5.7-5 7.5-.7z"/>',
+    trend: '<path d="M23 6l-9.5 9.5-5-5L1 18"/><path d="M17 6h6v6"/>'
   };
   
   const AREAS = [
@@ -803,7 +804,7 @@ const starterCourses = [
     // Games & Kids
     4: "games", 15: "games", 28: "games",
     // Administração & Gestão
-    5: "gestao", 13: "gestao", 18: "gestao", 21: "gestao", 25: "gestao",
+    5: "gestao", 7: "gestao", 8: "gestao", 13: "gestao", 18: "gestao", 21: "gestao", 25: "gestao",
     31: "gestao", 32: "gestao", 33: "gestao", 34: "gestao",
     // Vendas & Atendimento
     19: "vendas", 22: "vendas",
@@ -823,7 +824,7 @@ const starterCourses = [
   }));
   let selectedId = courses[0]?.id;
   
-  const state = { q: "", area: "todas", level: "todos", premium: false, sort: "relevancia" };
+  const state = { q: "", area: "todas", level: "todos", premium: false, best: false, sort: "relevancia" };
   
   const search = document.getElementById("search");
   const sortSelect = document.getElementById("sortSelect");
@@ -849,6 +850,7 @@ const starterCourses = [
     if (skip !== "area" && state.area !== "todas" && c.area !== state.area) return false;
     if (skip !== "level" && state.level !== "todos" && c.level !== state.level) return false;
     if (skip !== "premium" && state.premium && !c.isPremium) return false;
+    if (skip !== "best" && state.best && !c.bestSeller) return false;
     return true;
   }
   
@@ -867,7 +869,7 @@ const starterCourses = [
   }
   
   const filteredCourses = () => sortList(courses.filter(c => matches(c)));
-  const filtersActive = () => state.q.trim() || state.area !== "todas" || state.level !== "todos" || state.premium;
+  const filtersActive = () => state.q.trim() || state.area !== "todas" || state.level !== "todos" || state.premium || state.best;
   
   function renderChips() {
     const scroll = chipsEl.scrollLeft;
@@ -889,9 +891,16 @@ const starterCourses = [
         ${svg(ICONS.star)}<span>Premium</span><em>${premCount}</em>
       </button>`;
   
+    const bestCount = courses.filter(c => matches(c, "best") && c.bestSeller).length;
+    html += `
+      <button type="button" class="chip chip-best ${state.best ? "active" : ""} ${bestCount === 0 && !state.best ? "zero" : ""}"
+        data-best="1" style="--c:#d71920" aria-pressed="${state.best}">
+        ${svg(ICONS.trend)}<span>Mais vendidos</span><em>${bestCount}</em>
+      </button>`;
+  
     chipsEl.innerHTML = html;
     chipsEl.scrollLeft = scroll;
-    catLabel.textContent = (state.area === "todas" ? "Todos" : areaOf(state.area).name) + (state.premium ? " + Premium" : "");
+    catLabel.textContent = (state.area === "todas" ? "Todos" : areaOf(state.area).name) + (state.premium ? " + Premium" : "") + (state.best ? " + Mais vendidos" : "");
   }
   
   function renderLevels() {
@@ -955,6 +964,7 @@ const starterCourses = [
     let txt = `<strong>${n}</strong> ${n === 1 ? "curso encontrado" : "cursos encontrados"}`;
     if (state.area !== "todas") txt += ` em <strong>${areaOf(state.area).name}</strong>`;
     if (state.premium) txt += " · somente Premium";
+    if (state.best) txt += " · somente Mais vendidos";
     resultsInfo.innerHTML = txt;
     clearBtn.hidden = !filtersActive();
   }
@@ -970,7 +980,7 @@ const starterCourses = [
   }
   
   function clearFilters() {
-    Object.assign(state, { q: "", area: "todas", level: "todos", premium: false });
+    Object.assign(state, { q: "", area: "todas", level: "todos", premium: false, best: false });
     search.value = "";
     render();
   }
@@ -983,6 +993,7 @@ const starterCourses = [
     const b = e.target.closest(".chip");
     if (!b) return;
     if (b.dataset.premium) state.premium = !state.premium;
+    else if (b.dataset.best) state.best = !state.best;
     else state.area = b.dataset.area;
     render();
     catWrap.classList.remove("open");
