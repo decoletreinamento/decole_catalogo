@@ -612,7 +612,7 @@ const starterCourses = [
     {
       id: 31,
       code: "PREM-32",
-      name: "Gestor Administrativo",
+      name: "Gestão Administrativa",
       category: "Premium",
       level: "Profissionalizante",
       isPremium: true,
