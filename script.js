@@ -278,7 +278,7 @@ const starterCourses = [
       name: "Info Kids",
       category: "Informática",
       level: "Essencial",
-      duration: "12 meses",
+      duration: "18 meses",
       hours: 64,
       audience: "Crianças e pré-adolescentes que querem aprender informática, lógica e criação de jogos de forma lúdica.",
       description: "O Info Kids prepara as crianças para utilizar a tecnologia com criatividade, segurança e autonomia. Durante o curso, os alunos aprendem informática básica, segurança e ética digital, produção de textos, apresentações, planilhas, ferramentas de comunicação e inteligência artificial, desenvolvendo habilidades essenciais para os estudos e para o futuro.",
@@ -531,7 +531,7 @@ const starterCourses = [
         ["Pixel Art", ""]
       ]
     },*/
-    {
+   /* {
       id: 28,
       code: "PREM-29",
       name: "Info Games Kids",
@@ -555,7 +555,7 @@ const starterCourses = [
         ["Roblox", ""],
         ["Pixel Art", ""]
       ]
-    },
+    },*/
     {
       id: 29,
       code: "PREM-30",
