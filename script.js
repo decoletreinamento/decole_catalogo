@@ -32,12 +32,15 @@ const starterCourses = [
       modules: [
         ["Introdução à Informática", "8h"],
         ["Windows 11 Essencial", "12h"],
+        ["Windows 11 Avançado", "12h"],
+        ["Microsoft 365 - PowerPoint Essencial", "8h"],
         ["Microsoft 365 - PowerPoint Avançado", "8h"],
+        ["Microsoft 365 - Word Essencial", "8h"],
         ["Microsoft 365 - Word Avançado", "8h"],
         ["Microsoft 365 - Excel Essencial", "8h"],
         ["Microsoft 365 - Excel Intermediário", "8h"],
         ["Microsoft 365 - Excel Avançado", "8h"],
-        ["Aulas práticas - Operador Completo", "30h"]
+        ["Aulas práticas", "30h"]
       ]
     },
     {
@@ -210,7 +213,7 @@ const starterCourses = [
         ["Gestão com IA", "1 mês"]
       ]
     },*/
-    /*{
+    {
       id: 10,
       code: "ADMIA-001",
       name: "Pro Adm + IA",
@@ -227,7 +230,7 @@ const starterCourses = [
         ["Gestão com IA", "1 mês"],
         ["Gestão de Pessoas", "1 mês"]
       ]
-    },*/
+    },
     {
       id: 13,
       code: "000244",
@@ -613,7 +616,7 @@ const starterCourses = [
       category: "Premium",
       level: "Profissionalizante",
       isPremium: true,
-      duration: "22 meses",
+      duration: "18 meses",
       hours: 0,
       audience: "Alunos buscando formação completa.",
       description: "Formação completa unindo dois cursos para criar um profissional em T.",
@@ -624,9 +627,6 @@ const starterCourses = [
         ["Excel Intermediário", "1 mês"],
         ["Excel Avançado", "1 mês"],
         ["Assistente Contábil", "2 meses"],
-        ["Excel Essencial", "1 mês"],
-        ["Excel Intermediário", "1 mês"],
-        ["Excel Avançado", "1 mês"],
         ["Power BI Módulo I", "2 meses"],
         ["Power BI Módulo II", "2 meses"],
         ["Power BI Módulo III", "2 meses"],
@@ -673,9 +673,6 @@ const starterCourses = [
         ["Matemática Financeira na HP12C", "1 mês"],
         ["PowerPoint Essencial", "1 mês"],
         ["PowerPoint Avançado", "1 mês"],
-        ["Excel Essencial", "1 mês"],
-        ["Excel Intermediário", "1 mês"],
-        ["Excel Avançado", "1 mês"],
         ["Excel Essencial", "1 mês"],
         ["Excel Intermediário", "1 mês"],
         ["Excel Avançado", "1 mês"],
