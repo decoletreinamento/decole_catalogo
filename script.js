@@ -220,7 +220,7 @@ const starterCourses = [
       category: "Informática",
       level: "Avançado",
       duration: "8 meses",
-      hours: null,
+      hours: 49,
       audience: "Alunos que querem atuar em rotinas administrativas modernas com apoio de IA.",
       description: "Formação administrativa com finanças, vendas, gestão, pessoas e Inteligência Artificial aplicada à produtividade profissional.",
       modules: [
