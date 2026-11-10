@@ -713,11 +713,11 @@ const starterCourses = [
    {
       id: 35,
       code: "PREM-36",
-      name: "Gestor Digital Pro",
+      name: "Gestão Inteligente",
       category: "Premium",
       level: "Profissionalizante",
       isPremium: true,
-      duration: "16 meses",
+      duration: "14 meses",
       hours: 60,
       audience: "Alunos buscando formação completa.",
       description: "Formação completa unindo dois cursos para criar um profissional em T.",
