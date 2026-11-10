@@ -563,19 +563,21 @@ const starterCourses = [
       category: "Premium",
       level: "Profissionalizante",
       isPremium: true,
-      duration: "24 meses",
+      duration: "20 meses",
       hours: 182,
       audience: "Alunos buscando formação completa.",
       description: "Formação completa unindo dois cursos para criar um profissional em T.",
       modules: [
         ["Introdução à Informática", "8h"],
         ["Windows 11 Essencial", "12h"],
+         ["Windows 11 Avançado", "8h"],
+        ["Microsoft 365 - PowerPoint Essencial", "8h"],
         ["Microsoft 365 - PowerPoint Avançado", "8h"],
+         ["Microsoft 365 - Word Essencial", "8h"],
         ["Microsoft 365 - Word Avançado", "8h"],
         ["Microsoft 365 - Excel Essencial", "8h"],
         ["Microsoft 365 - Excel Intermediário", "8h"],
         ["Microsoft 365 - Excel Avançado", "8h"],
-        ["Aulas práticas - Operador Completo", "30h"],
         ["CorelDRAW - Graphics Suite - Módulo I", "12h"],
         ["CorelDRAW - Graphics Suite - Módulo II", "16h"],
         ["Adobe Photoshop", "16h"],
@@ -732,7 +734,7 @@ const starterCourses = [
         ["Design com Canva", "16h"]
       ]
     },
-    {
+   /* {
       id: 36,
       code: "PREM-37",
       name: "Informática Master (Manutenção)",
@@ -746,19 +748,21 @@ const starterCourses = [
       modules: [
         ["Introdução à Informática", "8h"],
         ["Windows 11 Essencial", "12h"],
-        ["Microsoft 365 - PowerPoint Avançado", "8h"],
+         ["Windows 11 Avançado", "8h"],
+        ["Microsoft 365 - PowerPoint Essencial", "8h"],
+         ["Microsoft 365 - PowerPoint Avançado", "8h"],
+          ["Microsoft 365 - Word Essencial", "8h"],
         ["Microsoft 365 - Word Avançado", "8h"],
         ["Microsoft 365 - Excel Essencial", "8h"],
         ["Microsoft 365 - Excel Intermediário", "8h"],
         ["Microsoft 365 - Excel Avançado", "8h"],
-        ["Aulas práticas - Operador Completo", "30h"],
         ["Redes - Cabeamento e Infraestrutura", "13h"],
         ["Redes - Tecnologias Wireless", "8h"],
         ["Redes - Lógica e Estruturação", "12h"],
         ["Montagem e Manutenção de Computadores", "16h"],
         ["Montagem Prática", "15h"]
       ]
-    }
+    }*/
   ];
   
   /* ===== Categorias =====
