@@ -665,7 +665,7 @@ const starterCourses = [
       category: "Premium",
       level: "Profissionalizante",
       isPremium: true,
-      duration: "20 meses",
+      duration: "17 meses",
       hours: 0,
       audience: "Alunos buscando formação completa.",
       description: "Formação completa unindo dois cursos para criar um profissional em T.",
