@@ -217,7 +217,7 @@ const starterCourses = [
       id: 10,
       code: "ADMIA-001",
       name: "Pro Adm + IA",
-      category: "Informática",
+      category: "Gestão & Atendimento",
       level: "Avançado",
       duration: "8 meses",
       hours: 49,
@@ -805,8 +805,9 @@ const starterCourses = [
     // Games & Kids
     4: "games", 15: "games", 28: "games",
     // Administração & Gestão
-    5: "gestao", 7: "gestao", 8: "gestao", 13: "gestao", 18: "gestao", 21: "gestao", 25: "gestao",
-    31: "gestao", 32: "gestao", 33: "gestao", 34: "gestao",
+    // Administração & Gestão
+5: "gestao", 7: "gestao", 8: "gestao", 10: "gestao", 13: "gestao", 18: "gestao", 21: "gestao", 25: "gestao",
+31: "gestao", 32: "gestao", 33: "gestao", 34: "gestao",
     // Vendas & Atendimento
     19: "vendas", 22: "vendas",
     // Idiomas
