@@ -559,14 +559,14 @@ const starterCourses = [
     {
       id: 29,
       code: "PREM-30",
-      name: "Informática Master",
+      name: "Informática e Design Master",
       category: "Premium",
       level: "Profissionalizante",
       isPremium: true,
       duration: "20 meses",
       hours: 182,
       audience: "Alunos buscando formação completa.",
-      description: "Formação completa unindo dois cursos para criar um profissional em T.",
+      description: "Formação profissional completa que reúne Operador de Computador e Design Gráfico, desenvolvendo habilidades em informática, ferramentas de escritório, criação gráfica, edição de imagens e produção audiovisual.",
       modules: [
         ["Introdução à Informática", "8h"],
         ["Windows 11 Essencial", "12h"],
