@@ -395,7 +395,7 @@ const starterCourses = [
       name: "Gestor Administrativo Informatizado",
       category: "Gestão & Atendimento",
       level: "Profissionalizante",
-      duration: "24 meses",
+      duration: "21 meses",
       hours: 179,
       audience: "Alunos que querem uma formação administrativa completa unindo informática, Office, RH, departamento pessoal, contabilidade e gestão.",
       description: "Curso avançado que une informática profissional com formação administrativa completa, preparando o aluno para atuar em múltiplos setores empresariais.",
